@@ -3,7 +3,7 @@ import { Sun, Bell, User, AlignJustify } from "lucide-react";
 
 export default function Navbar() {
   return (
-    <div className="flex items-center justify-between bg-slate-800 text-slate-50 h-16 px-8 py-4 fixed top-0 w-full left-60 right-0">
+    <div className="flex items-center justify-between bg-slate-800 text-slate-50 h-16 px-8 py-4 fixed top-0 w-full right-0 pl-64 z-40">
       {/* Icon */}
       <button>
         <AlignJustify />
