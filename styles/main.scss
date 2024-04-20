@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  min-height: 100vh;
+  background-color: rgba(54, 162, 235, 0.7);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

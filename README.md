@@ -1,3 +1,23 @@
+# Multi-Vendor Ecommerce | Online Store App With Next.js 🔥
+
+🔨 Project Setup: Created a Next.js 14 application to harness the latest features and optimizations.
+📦 Dependency Magic: Installed essential dependencies like Lucide Icons, Sass, and react-chartjs 2 to elevate the visual and functional aspects of our project.
+🛣️ Advanced Routing Techniques: Mastered advanced routing techniques in Next.js 14 for seamless navigation between the Dashboard and Frontend sections.
+🧭 Structured Navigation: Crafted a sleek Sidebar and Navbar structure for an intuitive and organized user interface.
+📊 Dashboard Overview: Focused on building a visually stunning Dashboard Overview. Created responsive and beautiful cards to showcase key metrics. Implemented Line graph Charts using react-chartjs 2 for dynamic data visualization.
+🌐 Global Reach: Ensured our application is globally accessible and responsive, setting the stage for an exceptional user experience.
+💡 What's Next?
+In the upcoming episodes, we'll delve deeper into frontend design, backend development, and the integration of crucial features that will shape our multi-vendor Ecommerce platform.
+
+If you want to learn how to create it please follow below tutorial👇: <br />
+➡ Tutorial Link 💚: [Multi-Vendor Ecommerce | Online Store App With Next.js Tutorial](https://www.youtube.com/playlist?list=PLDn5_2K0bUmfREsFv1nSHDbmHEX5oqI3Z) <br />
+
+---
+
+# ⭐DO NOT FORGET TO STAR THIS REPO⭐
+
+---
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -15,22 +35,3 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
