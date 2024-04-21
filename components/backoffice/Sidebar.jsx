@@ -1,11 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Sidebar() {
   return (
-    <div className="bg-slate-700 space-y-6 w-60 h-screen text-slate-50 p-3 fixed left-0 top-0 z-50">
+    <div className="dark:bg-slate-700 bg-slate-50 space-y-6 w-60 h-screen text-slate-800 dark:text-slate-50 p-4 fixed left-0 top-0 shadow-md">
       <Link className="mb-6" href="#">
-        Logo
+        <Image src="/logo.png" alt="Profile" width={100} height={100} />
       </Link>
       <div className="space-y-3 flex flex-col">
         <Link href="#">Dashboard</Link>
