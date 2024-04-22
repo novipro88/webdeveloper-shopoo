@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Sun,
   Bell,
   AlignJustify,
   LayoutDashboard,
@@ -19,14 +18,23 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
 import ThemeSwitcherBtn from "../ThemeSwitcherBtn";
+import Link from "next/link";
 
-export default function Navbar() {
+export default function Navbar({ setShowSidebar, showSidebar }) {
   return (
-    <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-800 text-slate-50 h-16 py-4 fixed top-0 w-full px-8 z-50 pr-[20rem]">
+    <div className="flex items-center justify-between lg:justify-end bg-slate-50 dark:bg-slate-800 text-slate-50 h-18 py-4 fixed top-0 w-full px-8 z-50 md:pr-[20rem]">
+      {/* <Link href={"/dashboard"} className="md:hidden">
+        Logo
+      </Link> */}
       {/* Icon */}
-      <button className="text-lime-700 dark:text-lime-500">
+      <Button
+        onClick={() => setShowSidebar(!showSidebar)}
+        className="lg:hidden text-lime-700 dark:text-lime-500"
+        size="sm"
+        variant="ghost"
+      >
         <AlignJustify />
-      </button>
+      </Button>
       {/* 3 Icons */}
       <div className="flex space-x-3">
         <ThemeSwitcherBtn />
@@ -127,7 +135,7 @@ export default function Navbar() {
               className="w-8 h-8 rounded-full"
             />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="py-2 px-4 pr-6">
+          <DropdownMenuContent className="px-4 pr-6">
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
