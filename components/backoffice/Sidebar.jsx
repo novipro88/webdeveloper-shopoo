@@ -22,6 +22,8 @@ import {
   SendToBack,
   ScanSearch,
   MonitorPlay,
+  Building2,
+  CircleDollarSign,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Button } from "../ui/button";
@@ -59,6 +61,16 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
       title: "Our Staff",
       icon: Handshake,
       href: "/dashboard/staff",
+    },
+    {
+      title: "Community",
+      icon: Building2,
+      href: "/dashboard/community",
+    },
+    {
+      title: "Wallet",
+      icon: CircleDollarSign,
+      href: "/dashboard/wallet",
     },
     {
       title: "Settings",
@@ -106,8 +118,8 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
     <div
       className={
         showSidebar
-          ? "md:block mt-20 md:mt-0 dark:bg-slate-700 bg-slate-50 space-y-6 w-64 h-screen text-slate-800 dark:text-slate-50 fixed left-0 top-0 shadow-md"
-          : "mt-20 md:mt-0 hidden md:block dark:bg-slate-700 bg-slate-50 space-y-6 w-64 h-screen text-slate-800 dark:text-slate-50 fixed left-0 top-0 shadow-md"
+          ? "mt-16 md:block md:mt-0 dark:bg-slate-800 bg-slate-50 space-y-6 w-64 h-screen text-slate-800 dark:text-slate-50 fixed left-0 top-0 shadow-md overflow-y-scroll"
+          : "hidden mt-16 md:block md:mt-0 dark:bg-slate-800 bg-slate-50 space-y-6 w-64 h-screen text-slate-800 dark:text-slate-50 fixed left-0 top-0 shadow-md overflow-y-scroll"
       }
     >
       <Link onClick={() => setShowSidebar(false)} href="/dashboard">
@@ -142,7 +154,7 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
             </div>
             {openMenu ? <ChevronDown /> : <ChevronRight />}
           </CollapsibleTrigger>
-          <CollapsibleContent className="rounded-lg py-2 px-3 pl-6 dark:bg-slate-800 bg-slate-200">
+          <CollapsibleContent className="rounded-lg py-2 px-3 pl-6 dark:bg-slate-700 bg-slate-200">
             {catalogueLinks.map((item, i) => {
               const Icon = item.icon;
               return (
@@ -188,6 +200,9 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
             <span>Logout</span>
           </Button>
         </div>
+        <br />
+        <br />
+        <br />
       </div>
     </div>
   );
