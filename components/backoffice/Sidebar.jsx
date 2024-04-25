@@ -19,7 +19,6 @@ import {
   ChevronDown,
   Boxes,
   LayoutList,
-  SendToBack,
   ScanSearch,
   MonitorPlay,
   Building2,
@@ -94,11 +93,6 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
       title: "Categories",
       icon: LayoutList,
       href: "/dashboard/categories",
-    },
-    {
-      title: "Attributes",
-      icon: SendToBack,
-      href: "/dashboard/attributes",
     },
     {
       title: "Coupons",

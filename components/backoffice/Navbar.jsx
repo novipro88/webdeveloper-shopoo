@@ -18,15 +18,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
 import ThemeSwitcherBtn from "../ThemeSwitcherBtn";
-import Link from "next/link";
 
 export default function Navbar({ setShowSidebar, showSidebar }) {
   return (
     <div className="flex items-center justify-between md:justify-end bg-slate-50 dark:bg-slate-800 text-slate-50 h-16 py-4 fixed top-0 w-full px-8 z-50 md:pr-[20rem]">
-      {/* <Link href={"/dashboard"} className="md:hidden">
-        Logo
-      </Link> */}
-      {/* Icon */}
       <Button
         onClick={() => setShowSidebar(!showSidebar)}
         className="md:hidden text-lime-700 dark:text-lime-500"

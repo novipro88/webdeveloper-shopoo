@@ -1,17 +1,14 @@
 "use client";
 
 import FormHeader from "@/components/backoffice/FormHeader";
-import ImageInput from "@/components/FormInputs/ImageInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
-import TextareaInput from "@/components/FormInputs/TextAreaInput";
 import TextInput from "@/components/FormInputs/TextInput";
 import { makePostRequest } from "@/lib/apiRequest";
-import { generateSlug } from "@/lib/generateSlug";
+import { generateCouponCode } from "@/lib/generateCouponCode";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-export default function NewCategory() {
-  const [imageUrl, setImageUrl] = useState("");
+export default function NewCoupon() {
   const [loading, setLoading] = useState(false);
 
   const {
@@ -26,50 +23,45 @@ export default function NewCategory() {
       /* 
       -id => auto()
       -title
-      -slug => auto()
-      -description
-      -image
+      -code => auto()
+      -expirydate
       */
     }
-    const slug = generateSlug(data.title);
-    data.slug = slug;
-    data.imageUrl = imageUrl;
+
+    const couponCode = generateCouponCode(data.title, data.expiryDate);
+    data.couponCode = couponCode;
     console.log(data);
-    makePostRequest(setLoading, "api/categories", data, "Category", reset);
-    setImageUrl("");
+    makePostRequest(setLoading, "api/coupons", data, "Coupon", reset);
   }
 
   return (
     <div>
-      <FormHeader title="New Category" />
+      <FormHeader title="New Coupon" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto my-3"
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput
-            label="Category Title"
+            label="Coupon Title"
             name="title"
             register={register}
             errors={errors}
+            className="w-full"
           />
-          <TextareaInput
-            label="Category Description"
-            name="description"
+          <TextInput
+            label="Coupon Expired"
+            name="expiryDate"
+            type="date"
             register={register}
             errors={errors}
-          />
-          <ImageInput
-            imageUrl={imageUrl}
-            setImageUrl={setImageUrl}
-            endpoint="categoryImageUploader"
-            label="Category Image"
+            className="w-full"
           />
         </div>
         <SubmitButton
           isLoading={loading}
-          buttonTitle="Create Category"
-          loadingButtonTitle="Creating category, please wait.."
+          buttonTitle="Create Coupon"
+          loadingButtonTitle="Creating coupon, please wait.."
         />
       </form>
     </div>
