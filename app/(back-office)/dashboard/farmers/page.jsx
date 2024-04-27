@@ -1,9 +1,23 @@
+import PageHeader from "@/components/backoffice/PageHeader";
+import TableActions from "@/components/backoffice/TableActions";
 import React from "react";
 
-export default function page() {
+export default function Farmers() {
   return (
     <div>
-      <h2>Farmers</h2>
+      {/* Header */}
+      <PageHeader
+        heading="Farmers"
+        href="/dashboard/farmers/new"
+        title="Add Farmer"
+      />
+      {/* Table Actions */}
+      {/* Export || Search || Bulk Delete */}
+      <TableActions />
+
+      <div className="py-8">
+        <h2>Table</h2>
+      </div>
     </div>
   );
 }

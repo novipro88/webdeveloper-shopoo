@@ -10,8 +10,7 @@ export async function POST(request) {
     console.log(error);
     return NextResponse.json(
       {
-        message: "Failed to create coupon",
-        error,
+        error: "Failed to create coupon",
       },
       { status: 500 }
     );
