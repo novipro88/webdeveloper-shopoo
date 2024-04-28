@@ -28,6 +28,18 @@ export default function NewProduct() {
       id: 3,
       title: "Category 3",
     },
+    {
+      id: 4,
+      title: "Category 4",
+    },
+    {
+      id: 5,
+      title: "Category 5",
+    },
+    {
+      id: 6,
+      title: "Category 6",
+    },
   ];
 
   const farmers = [

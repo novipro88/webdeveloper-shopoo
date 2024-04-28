@@ -22,7 +22,7 @@ export default function SelectInput({
           id={name}
           multiple={multiple}
           name={name}
-          className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-lime-700 dark:focus:ring-lime-500 sm:max-w-xs sm:text-sm sm:leading-6"
+          className="block w-full rounded-md border-0 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-gray-500 sm:max-w-xs sm:text-sm sm:leading-6"
         >
           {option.map((option, i) => {
             return (

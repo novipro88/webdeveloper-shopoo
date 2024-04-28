@@ -32,7 +32,8 @@ export async function POST(request) {
     console.log(error);
     return NextResponse.json(
       {
-        error: "Failed to recruit new Staff",
+        message: "Failed to recruit new Staff",
+        error,
       },
       { status: 500 }
     );

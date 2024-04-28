@@ -39,7 +39,7 @@ export default function NewBanner() {
       -title
       -link
       -image
-      -isActive
+      -isActive => toggle on/off
       */
     }
     data.imageUrl = imageUrl;

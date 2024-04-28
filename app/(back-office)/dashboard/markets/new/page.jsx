@@ -2,6 +2,7 @@
 
 import FormHeader from "@/components/backoffice/FormHeader";
 import ImageInput from "@/components/FormInputs/ImageInput";
+import SelectInput from "@/components/FormInputs/SelectInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextareaInput from "@/components/FormInputs/TextAreaInput";
 import TextInput from "@/components/FormInputs/TextInput";
@@ -14,6 +15,14 @@ import { useForm } from "react-hook-form";
 export default function NewMarket() {
   const [logoUrl, setLogoUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const categories = [
+    { id: 1, title: "Category 1" },
+    { id: 2, title: "Category 2" },
+    { id: 3, title: "Category 3" },
+    { id: 4, title: "Category 4" },
+    { id: 5, title: "Category 5" },
+    { id: 6, title: "Category 6" },
+  ];
 
   const {
     register,
@@ -60,6 +69,16 @@ export default function NewMarket() {
             name="title"
             register={register}
             errors={errors}
+            className="w-full"
+          />
+          <SelectInput
+            label="Select Categories"
+            name="categoryIds"
+            register={register}
+            errors={errors}
+            className="w-full"
+            option={categories}
+            multiple={true}
           />
           {/* Configure endpoint in the core.js */}
           <ImageInput

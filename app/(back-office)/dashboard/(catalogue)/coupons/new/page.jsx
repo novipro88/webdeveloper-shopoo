@@ -38,6 +38,7 @@ export default function NewCoupon() {
       -id => auto()
       -title
       -code => auto()
+      -isActive => toggle on/off
       -expirydate
       */
     }

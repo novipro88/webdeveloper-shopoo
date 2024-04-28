@@ -36,12 +36,14 @@ bun dev
 
 ## Environments Setting
 
-Create a new file on root with name .env.local and set your own environment.
+Create a new file on root with name .env and set your own environment.
 
 ```js
 UPLOADTHING_SECRET=sk_live_.....
 UPLOADTHING_APP_ID=wm.....
 NEXT_PUBLIC_BASE_URL='http://localhost:3000'
+
+DATABASE_URL="mongodb+srv://....."
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

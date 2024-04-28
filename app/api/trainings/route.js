@@ -26,7 +26,8 @@ export async function POST(request) {
     console.log(error);
     return NextResponse.json(
       {
-        error: "Failed to create training",
+        message: "Failed to create training",
+        error,
       },
       { status: 500 }
     );

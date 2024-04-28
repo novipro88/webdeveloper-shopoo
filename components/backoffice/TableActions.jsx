@@ -1,5 +1,6 @@
 import React from "react";
 import { Download, Search, Trash2 } from "lucide-react";
+import { Button } from "../ui/button";
 
 export default function TableActions() {
   return (
@@ -27,10 +28,10 @@ export default function TableActions() {
         </div>
       </div>
       {/* Delete */}
-      <button className="flex items-center space-x-2 bg-red-600 text-white rounded-lg px-4 py-2">
+      <Button variant="destructive" className="text-md space-x-2">
         <Trash2 />
         <span>Bulk Delete</span>
-      </button>
+      </Button>
     </div>
   );
 }

@@ -11,6 +11,8 @@ export async function POST(request) {
       phone,
       physicalAddress,
       terms,
+      isActive,
+      profileImageUrl,
     } = await request.json();
     const newFarmer = {
       code,
@@ -21,6 +23,8 @@ export async function POST(request) {
       phone,
       physicalAddress,
       terms,
+      isActive,
+      profileImageUrl,
     };
     console.log(newFarmer);
     return NextResponse.json(newFarmer);
@@ -28,7 +32,8 @@ export async function POST(request) {
     console.log(error);
     return NextResponse.json(
       {
-        error: "Failed to create farmer",
+        message: "Failed to create farmer",
+        error,
       },
       { status: 500 }
     );

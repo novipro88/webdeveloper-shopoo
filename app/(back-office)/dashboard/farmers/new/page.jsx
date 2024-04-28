@@ -1,6 +1,7 @@
 "use client";
 
 import FormHeader from "@/components/backoffice/FormHeader";
+import ImageInput from "@/components/FormInputs/ImageInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextareaInput from "@/components/FormInputs/TextAreaInput";
 import TextInput from "@/components/FormInputs/TextInput";
@@ -82,12 +83,21 @@ export default function NewFarmer() {
             name="physicalAddress"
             register={register}
             errors={errors}
+            isRequired={false}
+          />
+          {/* Configure endpoint in the core.js */}
+          <ImageInput
+            imageUrl={logoUrl}
+            setImageUrl={setLogoUrl}
+            endpoint="farmerProfileUploader"
+            label="Farmer Profile Image"
           />
           <TextareaInput
             label="Farmer's Payment Terms"
             name="terms"
             register={register}
             errors={errors}
+            isRequired={false}
           />
           <TextareaInput
             label="Farmer's Notes (optional)"
