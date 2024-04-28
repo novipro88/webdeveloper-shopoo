@@ -4,7 +4,9 @@ import FormHeader from "@/components/backoffice/FormHeader";
 import ImageInput from "@/components/FormInputs/ImageInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextInput from "@/components/FormInputs/TextInput";
+import ToggleInput from "@/components/FormInputs/ToggleInput";
 import { makePostRequest } from "@/lib/apiRequest";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -15,9 +17,20 @@ export default function NewBanner() {
   const {
     register,
     reset,
+    watch,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      isActive: true,
+    },
+  });
+  const router = useRouter();
+  function redirect() {
+    router.push("/dashboard/banners");
+  }
+  // Watch it to be change off and on
+  const isActive = watch("isActive");
 
   async function onSubmit(data) {
     {
@@ -26,11 +39,12 @@ export default function NewBanner() {
       -title
       -link
       -image
+      -isActive
       */
     }
     data.imageUrl = imageUrl;
     console.log(data);
-    makePostRequest(setLoading, "api/banners", data, "Banner", reset);
+    makePostRequest(setLoading, "api/banners", data, "Banner", reset, redirect);
     setImageUrl("");
   }
 
@@ -61,6 +75,13 @@ export default function NewBanner() {
             setImageUrl={setImageUrl}
             endpoint="bannerImageUploader"
             label="Banner Image"
+          />
+          <ToggleInput
+            label="Publish your Banner"
+            name="isActive"
+            trueTitle="Active"
+            falseTitle="Draft"
+            register={register}
           />
         </div>
 

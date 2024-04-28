@@ -7,6 +7,7 @@ import SelectInput from "@/components/FormInputs/SelectInput";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextareaInput from "@/components/FormInputs/TextAreaInput";
 import TextInput from "@/components/FormInputs/TextInput";
+import ToggleInput from "@/components/FormInputs/ToggleInput";
 import { makePostRequest } from "@/lib/apiRequest";
 import { generateSlug } from "@/lib/generateSlug";
 import React, { useState } from "react";
@@ -50,9 +51,16 @@ export default function NewProduct() {
   const {
     register,
     reset,
+    watch,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      isActive: true,
+    },
+  });
+  // Watch it to be change off and on
+  const isActive = watch("isActive");
 
   async function onSubmit(data) {
     {
@@ -153,6 +161,13 @@ export default function NewProduct() {
             name="description"
             register={register}
             errors={errors}
+          />
+          <ToggleInput
+            label="Publish your Product"
+            name="isActive"
+            trueTitle="Active"
+            falseTitle="Draft"
+            register={register}
           />
         </div>
 

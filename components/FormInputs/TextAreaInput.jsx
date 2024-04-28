@@ -11,7 +11,7 @@ export default function TextareaInput({
     <div className={className}>
       <label
         htmlFor={name}
-        className="block text-sm font-medium leading-6 mb-2 "
+        className="block text-sm font-medium leading-6 mb-2"
       >
         {label}
       </label>

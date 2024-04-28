@@ -7,11 +7,10 @@ import TextInput from "@/components/FormInputs/TextInput";
 import ToggleInput from "@/components/FormInputs/ToggleInput";
 import { makePostRequest } from "@/lib/apiRequest";
 import { generateUserCode } from "@/lib/generateUserCode";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
-export default function NewFarmer() {
+export default function NewStaff() {
   const [loading, setLoading] = useState(false);
 
   const {
@@ -25,37 +24,69 @@ export default function NewFarmer() {
       isActive: true,
     },
   });
-  const router = useRouter();
-  function redirect() {
-    router.push("/dashboard/farmers");
-  }
   // Watch it to be change off and on
   const isActive = watch("isActive");
 
   async function onSubmit(data) {
-    const code = generateUserCode("SEF", data.name);
+    /*
+    -id => auto()
+    -name
+    -password
+    -email
+    -phone
+    -physicalAddress
+    -NIN
+    -DOB
+    -notes
+    -code => auto()
+    -isActive = toggle
+    */
+    const code = generateUserCode("SES", data.name);
     data.code = code;
     console.log(data);
-    makePostRequest(setLoading, "api/farmers", data, "Farmer", reset, redirect);
+    makePostRequest(setLoading, "api/staffs", data, "Staff", reset);
   }
 
   return (
     <div>
-      <FormHeader title="New Farmer" />
+      <FormHeader title="New Staff" />
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-4xl p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mx-auto my-3"
       >
         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
           <TextInput
-            label="Farmer's Full Name"
+            label="Staff Full Name"
             name="name"
             register={register}
             errors={errors}
             className="w-full"
           />
           <TextInput
-            label="Farmer's Phone"
+            label="NIN (Id Number)"
+            name="nin"
+            register={register}
+            errors={errors}
+            className="w-full"
+          />
+          <TextInput
+            label="Date of Birth"
+            name="dob"
+            type="date"
+            register={register}
+            errors={errors}
+            className="w-full"
+          />
+          <TextInput
+            label="Password"
+            name="password"
+            type="password"
+            register={register}
+            errors={errors}
+            className="w-full"
+          />
+          <TextInput
+            label="Phone Number"
             name="phone"
             type="tel"
             register={register}
@@ -63,41 +94,27 @@ export default function NewFarmer() {
             className="w-full"
           />
           <TextInput
-            label="Farmer's Email"
+            label="Email"
             name="email"
             register={register}
             errors={errors}
             className="w-full"
           />
           <TextInput
-            label="Contact's Person (optional)"
-            name="contactPerson"
-            register={register}
-            errors={errors}
-            className="w-full"
-            isRequired={false}
-          />
-          <TextInput
-            label="Farmer's Address"
+            label="Address"
             name="physicalAddress"
             register={register}
             errors={errors}
           />
           <TextareaInput
-            label="Farmer's Payment Terms"
-            name="terms"
-            register={register}
-            errors={errors}
-          />
-          <TextareaInput
-            label="Farmer's Notes (optional)"
+            label="Staff Notes (optional)"
             name="notes"
             register={register}
             errors={errors}
             isRequired={false}
           />
           <ToggleInput
-            label="Farmer Status"
+            label="Staff Member Status"
             name="isActive"
             trueTitle="Active"
             falseTitle="Draft"
@@ -107,8 +124,8 @@ export default function NewFarmer() {
 
         <SubmitButton
           isLoading={loading}
-          buttonTitle="Create Farmer"
-          loadingButtonTitle="Creating farmer, please wait.."
+          buttonTitle="Recruit Staff"
+          loadingButtonTitle="Recruiting Staff, please wait.."
         />
       </form>
     </div>

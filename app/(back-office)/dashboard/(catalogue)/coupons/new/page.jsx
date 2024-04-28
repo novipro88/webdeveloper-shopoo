@@ -3,10 +3,13 @@
 import FormHeader from "@/components/backoffice/FormHeader";
 import SubmitButton from "@/components/FormInputs/SubmitButton";
 import TextInput from "@/components/FormInputs/TextInput";
+import ToggleInput from "@/components/FormInputs/ToggleInput";
 import { makePostRequest } from "@/lib/apiRequest";
 import { generateCouponCode } from "@/lib/generateCouponCode";
+import { generateIsoFormattedDate } from "@/lib/generateIsoFormattedDate";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 
 export default function NewCoupon() {
   const [loading, setLoading] = useState(false);
@@ -14,9 +17,20 @@ export default function NewCoupon() {
   const {
     register,
     reset,
+    watch,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      isActive: true,
+    },
+  });
+  // Watch it to be change off and on
+  const isActive = watch("isActive");
+  const router = useRouter();
+  function redirect() {
+    router.push("/dashboard/coupons");
+  }
 
   async function onSubmit(data) {
     {
@@ -29,9 +43,11 @@ export default function NewCoupon() {
     }
 
     const couponCode = generateCouponCode(data.title, data.expiryDate);
+    const isoFormatedDate = generateIsoFormattedDate(data.expiryDate);
     data.couponCode = couponCode;
+    data.expiryDate = isoFormatedDate;
     console.log(data);
-    makePostRequest(setLoading, "api/coupons", data, "Coupon", reset);
+    makePostRequest(setLoading, "api/coupons", data, "Coupon", reset, redirect);
   }
 
   return (
@@ -57,7 +73,15 @@ export default function NewCoupon() {
             errors={errors}
             className="w-full"
           />
+          <ToggleInput
+            label="Publish your Coupon"
+            name="isActive"
+            trueTitle="Active"
+            falseTitle="Draft"
+            register={register}
+          />
         </div>
+
         <SubmitButton
           isLoading={loading}
           buttonTitle="Create Coupon"
